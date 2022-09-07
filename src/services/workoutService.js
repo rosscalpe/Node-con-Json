@@ -1,13 +1,13 @@
 const { v4: uuid } = require('uuid');
-const workout = require('../database/workout');
+const workout = require('../database/Workout');
 
 const getAllWorkout = ()=>{
     const allWorkout = workout.getAllWorkout();
     return allWorkout;
 }
-const getWorkoutById = ()=>{
-    const workout = workout.getWorkoutById
-    return workout;
+const getWorkoutById = (workoutId)=>{
+    const Workout = workout.getWorkoutById(workoutId);
+    return Workout;
 }
 const createWorkout = (newWorkout)=>{
    const workoutToInsert = {
@@ -19,13 +19,12 @@ const createWorkout = (newWorkout)=>{
     const created = workout.createWorkout(workoutToInsert);
     return created;
 }
-const updateWorkout = ()=>{
-    const updated = workout.updateWorkout();
+const updateWorkout = (workoutId, changes)=>{
+    const updated = workout.updateWorkout(workoutId, changes);
     return updated;
 }
-const deleteWorkout = ()=>{
-    const deleted = workout.deleteWorkout();
-    return deleted;
+const deleteWorkout = (workoutId)=>{
+    workout.deleteWorkout(workoutId);
 }
 module.exports = {
     getAllWorkout,

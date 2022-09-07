@@ -44,7 +44,7 @@
       ]
     },
     {
-      "id": "d8be2362-7b68-4ea4-a1f6-03f8bc4eede7",
+      "id": "49cbfcb6-bc31-4cae-9073-f6bd84a741a0",
       "name": "Heavy DT",
       "mode": "5 Rounds For Time",
       "equipment": [
@@ -56,35 +56,13 @@
         "9 hang power cleans",
         "6 push jerks"
       ],
-      "createdAt": "11/20/2021, 5:39:07 PM",
-      "updatedAt": "11/20/2021, 5:39:07 PM",
+      "createdAt": "9/7/2022, 2:50:54 PM",
+      "updatedAt": "9/7/2022, 2:50:54 PM",
       "trainerTips": [
         "Aim for unbroken push jerks",
         "The first three rounds might feel terrible, but stick to it",
         "RX Weights: 205lb/145lb"
       ]
-    },
-    {
-      "name": "Core Buster",
-      "mode": "AMRAP 20",
-      "equipment": [
-        "rack",
-        "barbell",
-        "abmat"
-      ],
-      "exercises": [
-        "15 toes to bars",
-        "10 thrusters",
-        "30 abmat sit-ups"
-      ],
-      "trainerTips": [
-        "Split your toes to bars into two sets maximum",
-        "Go unbroken on the thrusters",
-        "Take the abmat sit-ups as a chance to normalize your breath"
-      ],
-      "id": "f44aed8a-ab53-459a-9871-9ae255987944",
-      "createdAt": "8/30/2022, 8:44:47 PM",
-      "updatedAt": "8/30/2022, 8:44:48 PM"
     }
   ]
 }

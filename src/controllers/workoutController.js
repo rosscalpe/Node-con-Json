@@ -5,13 +5,17 @@ const getAllWorkout = (req, res)=>{
     res.send({status: 'ok', data: allWorkouts});
 }
 const getWorkoutById = (req, res)=>{
-    const Workout = workoutService.getWorkoutById(req.params.workoutId);
+    const { params: { workoutId } } = req;
+    if(!workoutId){
+        res.status(400).send({ status: 'error'});
+    }
+    const Workout = workoutService.getWorkoutById(workoutId);
     res.status(200).send({status: 'ok', data: Workout});
 }
 const createWorkout = (req, res)=>{
     const { body } = req;
     if(!body. name || !body. mode || !body. equipment || !body. exercises || !body. trainerTips){
-        res.status(400).send({status: 'error', message: 'Please provide all required fields'});
+        res.status(400).send({ status: 'error' });
     }
     const newWorkout = {
         ...body
@@ -20,12 +24,15 @@ const createWorkout = (req, res)=>{
     res.status(201).send({status: 'ok', data: created});
 }
 const updateWorkout = (req, res)=>{
-    const updatedWorkout = workoutService.updateWorkout(req.params.workoutId, req.body);
-    res.send({status: 'ok', data: updatedWorkout});
+    const { body , params: { workoutId } } = req;
+    const updated = workoutService.updateWorkout(workoutId, body);
+    res.status(200).send({status: 'ok', data: updated});
 }
 const deleteWorkout = (req, res) =>{
-    const deleteWorkout = workoutService.deleteWorkout(req.params.workoutId);
-    res.send({status: 'ok', data: deleteWorkout});
+    const { params: { workoutId } } = req;
+    if(!workoutId){return}
+    workoutService.deleteWorkout(workoutId);
+    res.status(204).send({status: 'ok'});
 }
 module.exports = {
     getAllWorkout,

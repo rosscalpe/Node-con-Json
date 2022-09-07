@@ -16,18 +16,22 @@ const createWorkout = (newWorkout) => {
     saveToDB(DB);
     return newWorkout;
 }
-const updateWorkout = (id, workout) => {
-    return DB.workouts.map((workout) => {
-        if (workout.id === id) {
-            return workout = workout;
-        }
-    });
-}
-const deleteWorkout = (id) => {
-    const workout = DB.workouts.find((workout) => workout.id === id);
+const updateWorkout = (workoutId, changes) => {
+    const workout = DB.workouts.find((workout) => workout.id === workoutId);
     const index = DB.workouts.indexOf(workout);
-    DB.workouts.splice(index, 1);
-    return workout;
+    DB.workouts[index] ={
+        ...workout,
+        ...changes,
+        updatedAt: new Date().toLocaleString("en-US", {timeZone: "UTC"})
+    }
+    saveToDB(DB);
+    return DB.workouts[index];
+}
+const deleteWorkout = (workoutId) => {
+    const workoutForDelete = DB.workouts.findIndex(workout => workout.id === workoutId);
+    if(workoutForDelete === -1){return}
+    DB.workouts.splice(workoutForDelete, 1);
+    saveToDB(DB);
 }
 
 module.exports = { getAllWorkout, getWorkoutById, createWorkout, updateWorkout, deleteWorkout };
